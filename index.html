@@ -387,7 +387,7 @@ footer{background:rgba(6,4,18,.98);border-top:1px solid rgba(124,58,237,.15);pad
     <div class="footer-links"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-directory')">Find a Psychic</a><a onclick="go('screen-astrology')">Astrology</a><a onclick="go('screen-compat')">Compatibility</a><a onclick="go('screen-join')">Join as a Reader</a><a onclick="go('screen-membership')">Membership</a><a onclick="go('screen-faq')">FAQ</a><a onclick="go('screen-privacy')">Privacy Policy</a><a onclick="go('screen-terms')">Terms & Conditions</a></div>
     <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(124,58,237,.2),transparent);margin:.8rem auto;max-width:380px"></div>
     <p class="footer-disc">All readings are for entertainment purposes only. Must be 18+. The Lunar Hub is a hosting platform only.</p>
-    <p style="font-size:.72rem;color:var(--dim);margin-top:.4rem">Support: <a href="/cdn-cgi/l/email-protection#a1f2d4d1d1ced3d5e1d5c9c4cdd4cfc0d3c9d4c38fc2ce" style="color:var(--purple3)"><span class="__cf_email__" data-cfemail="590a2c2929362b2d192d313c352c37382b312c3b773a36">[email&#160;protected]</span></a></p>
+    <p style="font-size:.72rem;color:var(--dim);margin-top:.4rem">Support: <a href="mailto:Support@thelunarhub.co" style="color:var(--purple3)">Support@thelunarhub.co</a></p>
     <p class="footer-copy">© 2026 The Lunar Hub. All rights reserved.</p>
   </footer>
 </div>
@@ -480,13 +480,13 @@ footer{background:rgba(6,4,18,.98);border-top:1px solid rgba(124,58,237,.15);pad
     </div>
     <div class="join-form">
       <h3>✦ Reader Application</h3>
-      <div class="frow"><div class="field"><label>Full Name</label><input type="text" placeholder="Your name"/></div><div class="field"><label>Display Name</label><input type="text" placeholder="Seekers will see this"/></div></div>
-      <div class="frow"><div class="field"><label>Email</label><input type="email" placeholder="you@email.com"/></div><div class="field"><label>Instagram</label><input type="text" placeholder="@yourhandle"/></div></div>
-      <div class="field"><label>Primary Specialty</label><select><option>Tarot Reading</option><option>Mediumship</option><option>Astrology</option><option>Energy Healing</option><option>Dream Analysis</option><option>Multiple / Other</option></select></div>
-      <div class="frow"><div class="field"><label>Years Experience</label><input type="text" placeholder="e.g. 5 years"/></div><div class="field"><label>YouTube / Website</label><input type="text" placeholder="https://..."/></div></div>
-      <div class="field"><label>Bio</label><textarea placeholder="Tell us about your gift and style..."></textarea></div>
-      <button class="btn btn-primary btn-block" onclick="alert('✦ Application received! We will be in touch within 3–5 days.')">Submit Application ✦</button>
-      <p style="text-align:center;font-size:.76rem;color:var(--dim);margin-top:.85rem">Questions? <a href="/cdn-cgi/l/email-protection#8ad9fffafae5f8fecafee2efe6ffe4ebf8e2ffe8a4e9e5" style="color:var(--purple3)"><span class="__cf_email__" data-cfemail="9bc8eeebebf4e9efdbeff3fef7eef5fae9f3eef9b5f8f4">[email&#160;protected]</span></a></p>
+      <div class="frow"><div class="field"><label>Full Name</label><input type="text" id="appFullName" placeholder="Your name"/></div><div class="field"><label>Display Name</label><input type="text" id="appDisplayName" placeholder="Seekers will see this"/></div></div>
+      <div class="frow"><div class="field"><label>Email</label><input type="email" id="appEmail" placeholder="you@email.com"/></div><div class="field"><label>Instagram</label><input type="text" id="appInstagram" placeholder="@yourhandle"/></div></div>
+      <div class="field"><label>Primary Specialty</label><select id="appSpecialty"><option>Tarot Reading</option><option>Mediumship</option><option>Astrology</option><option>Energy Healing</option><option>Dream Analysis</option><option>Multiple / Other</option></select></div>
+      <div class="frow"><div class="field"><label>Years Experience</label><input type="text" id="appExperience" placeholder="e.g. 5 years"/></div><div class="field"><label>YouTube / Website</label><input type="text" id="appWebsite" placeholder="https://..."/></div></div>
+      <div class="field"><label>Bio</label><textarea id="appBio" placeholder="Tell us about your gift and style..."></textarea></div>
+      <button class="btn btn-primary btn-block" onclick="submitApp()">Submit Application ✦</button>
+      <p style="text-align:center;font-size:.76rem;color:var(--dim);margin-top:.85rem">Questions? <a href="mailto:houseovirgo@gmail.com" style="color:var(--purple3)">houseovirgo@gmail.com</a></p>
     </div>
   </div>
   <footer><div class="footer-logo">The Lunar <em>Hub</em></div><div class="footer-links"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-faq')">FAQ</a><a onclick="go('screen-privacy')">Privacy Policy</a><a onclick="go('screen-terms')">Terms</a></div><p class="footer-copy" style="margin-top:.5rem">© 2026 The Lunar Hub. All rights reserved.</p></footer>
@@ -534,7 +534,7 @@ footer{background:rgba(6,4,18,.98);border-top:1px solid rgba(124,58,237,.15);pad
 <!-- FAQ -->
 <div id="screen-faq" class="screen">
   <nav><div class="logo" onclick="go('screen-home')"><div class="logo-icon">🌙</div><div class="logo-text"><div class="logo-name">The Lunar <em>Hub</em></div><div class="logo-tag">✦ Spiritual Guidance</div></div></div><div class="nav-menu"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-directory')">Find a Psychic</a></div><button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button></nav>
-  <div class="legal-wrap"><div style="text-align:center;margin-bottom:2.5rem"><div class="badge">✦ Help Center</div><h1 class="stitle">Frequently Asked <em>Questions</em></h1><p class="ssub">Everything you need to know about getting a reading on The Lunar Hub.</p></div><div id="faqList"></div><div style="text-align:center;margin-top:2.2rem;padding:1.8rem;background:var(--card);border:1px solid rgba(124,58,237,.2);border-radius:16px"><div style="font-size:1.8rem;margin-bottom:.55rem">🔮</div><div style="font-family:'Cinzel',serif;font-weight:700;color:var(--white);font-size:.95rem;margin-bottom:.38rem">Still have questions?</div><p style="font-size:.82rem;color:var(--silver3);margin-bottom:1.1rem;line-height:1.7">We're here to help. Email us directly.</p><a href="/cdn-cgi/l/email-protection#5c0f292c2c332e281c2834393029323d2e34293e723f33" class="btn btn-primary">✉️ <span class="__cf_email__" data-cfemail="ca99bfbabaa5b8be8abea2afa6bfa4abb8a2bfa8e4a9a5">[email&#160;protected]</span></a></div></div>
+  <div class="legal-wrap"><div style="text-align:center;margin-bottom:2.5rem"><div class="badge">✦ Help Center</div><h1 class="stitle">Frequently Asked <em>Questions</em></h1><p class="ssub">Everything you need to know about getting a reading on The Lunar Hub.</p></div><div id="faqList"></div><div style="text-align:center;margin-top:2.2rem;padding:1.8rem;background:var(--card);border:1px solid rgba(124,58,237,.2);border-radius:16px"><div style="font-size:1.8rem;margin-bottom:.55rem">🔮</div><div style="font-family:'Cinzel',serif;font-weight:700;color:var(--white);font-size:.95rem;margin-bottom:.38rem">Still have questions?</div><p style="font-size:.82rem;color:var(--silver3);margin-bottom:1.1rem;line-height:1.7">We're here to help. Email us directly.</p><a href="mailto:Support@thelunarhub.co" class="btn btn-primary">✉️ Support@thelunarhub.co</a></div></div>
   <footer><div class="footer-logo">The Lunar <em>Hub</em></div><div class="footer-links"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-faq')">FAQ</a><a onclick="go('screen-privacy')">Privacy Policy</a><a onclick="go('screen-terms')">Terms & Conditions</a></div><p class="footer-copy" style="margin-top:.7rem">© 2026 The Lunar Hub. All rights reserved.</p></footer>
 </div>
 
@@ -589,7 +589,7 @@ footer{background:rgba(6,4,18,.98);border-top:1px solid rgba(124,58,237,.15);pad
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ── STARS ──
 (function(){var c=document.getElementById('starfield'),ctx=c.getContext('2d'),W,H,stars=[];function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;stars=[];for(var i=0;i<240;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.3+.2,o:Math.random(),s:Math.random()*.014+.004,d:Math.random()>.5?1:-1})}function draw(){ctx.clearRect(0,0,W,H);for(var i=0;i<stars.length;i++){var s=stars[i];s.o+=s.s*s.d;if(s.o>1||s.o<.1)s.d*=-1;var g=ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*2.5);g.addColorStop(0,'rgba(220,210,255,'+s.o+')');g.addColorStop(1,'transparent');ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=g;ctx.fill()}requestAnimationFrame(draw)}resize();window.addEventListener('resize',resize);draw()})();
 
@@ -597,6 +597,28 @@ footer{background:rgba(6,4,18,.98);border-top:1px solid rgba(124,58,237,.15);pad
 function go(id){var t=document.getElementById(id);if(!t)return;document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active')});t.classList.add('active');window.scrollTo(0,0);cm()}
 function toggleMenu(){document.querySelectorAll('.ham').forEach(function(h){h.classList.toggle('open')});document.getElementById('mmenu').classList.toggle('open')}
 function cm(){document.querySelectorAll('.ham').forEach(function(h){h.classList.remove('open')});document.getElementById('mmenu').classList.remove('open')}
+
+// ── READER APPLICATION ──
+function submitApp(){
+  var fullName=document.getElementById('appFullName').value;
+  var displayName=document.getElementById('appDisplayName').value;
+  var email=document.getElementById('appEmail').value;
+  var instagram=document.getElementById('appInstagram').value;
+  var specialty=document.getElementById('appSpecialty').value;
+  var experience=document.getElementById('appExperience').value;
+  var website=document.getElementById('appWebsite').value;
+  var bio=document.getElementById('appBio').value;
+  var body='New Reader Application – The Lunar Hub\n\n'
+    +'Full Name: '+fullName+'\n'
+    +'Display Name: '+displayName+'\n'
+    +'Email: '+email+'\n'
+    +'Instagram: '+instagram+'\n'
+    +'Specialty: '+specialty+'\n'
+    +'Experience: '+experience+'\n'
+    +'Website/YouTube: '+website+'\n\n'
+    +'Bio:\n'+bio;
+  window.location.href='mailto:houseovirgo@gmail.com?subject=New Reader Application – The Lunar Hub&body='+encodeURIComponent(body);
+}
 
 // ── COMPAT ──
 document.getElementById('compatBtn').addEventListener('click', function(){
@@ -628,7 +650,7 @@ document.getElementById('compatBtn').addEventListener('click', function(){
   var es=sameEl?5:trineEl?4:3;
   var ces=CE[c1]===CE[c2]?4:3;
   var total=Math.round((ws+cs+es+ces)/4);
-  function st(n){var s='';for(var i=1;i<=5;i++)s+='<span style="color:'+(i<=n?'var(--gold)':'rgba(241,196,15,.2)');s+=';font-size:1.4rem">★</span>';return s}
+  function st(n){var s='';for(var i=1;i<=5;i++)s+='<span style="color:'+(i<=n?'var(--gold)':'rgba(241,196,15,.2)')+';font-size:1.4rem">★</span>';return s}
   function bar(lbl,n){var p=Math.round(n/5*100),col=n>=4?'var(--green)':n>=3?'var(--purple3)':'rgba(124,58,237,.45)';return'<div style="margin-bottom:.82rem"><div style="display:flex;justify-content:space-between;margin-bottom:.28rem"><span style="font-size:.78rem;color:var(--silver3)">'+lbl+'</span><span>'+st(Math.round(n))+'</span></div><div style="height:5px;background:rgba(124,58,237,.12);border-radius:999px"><div style="height:100%;width:'+p+'%;background:'+col+';border-radius:999px"></div></div></div>'}
   var elRel=sameEl?'Same Element':trineEl?'Trine Elements':'Different Elements';
   var elDesc=sameEl?'Both '+el1+' signs — shared elemental energy creates natural understanding and deep resonance.':trineEl?el1+' and '+el2+' elements complement one another beautifully, elevating each other\'s best qualities.':'Different elements bring contrast — this friction can spark growth and fascinating tension between you.';
