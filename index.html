@@ -806,6 +806,17 @@ function renderHoroData(s,text){
   var m=document.createElement('div');m.className='horo-meta';
   m.innerHTML=[{l:'Element',v:s.el},{l:'Ruling Planet',v:s.ru},{l:'Lucky Day',v:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][signs.indexOf(s)%7]}].map(function(a){return'<div class="hm-cell"><div class="hm-lbl">'+a.l+'</div><div class="hm-val">'+a.v+'</div></div>'}).join('');
   document.getElementById('horoCard').appendChild(m);
+function renderHoroData(s,text){
+  var pl={daily:'Daily — Today',weekly:'Weekly — This Week',monthly:'Monthly — This Month'};
+  document.getElementById('horoEm').textContent=s.em;
+  document.getElementById('horoNm').textContent=s.name+' · '+s.dates;
+  document.getElementById('horoPer').textContent=pl[curPeriod];
+  document.getElementById('horoBody').textContent=text;
+  document.getElementById('horoBody').style.cssText='color:var(--silver3);font-style:normal';
+  var ex=document.querySelector('.horo-meta');if(ex)ex.remove();
+  var m=document.createElement('div');m.className='horo-meta';
+  m.innerHTML=[{l:'Element',v:s.el},{l:'Ruling Planet',v:s.ru},{l:'Lucky Day',v:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][signs.indexOf(s)%7]}].map(function(a){return'<div class="hm-cell"><div class="hm-lbl">'+a.l+'</div><div class="hm-val">'+a.v+'</div></div>'}).join('');
+  document.getElementById('horoCard').appendChild(m);
 }
  
 
