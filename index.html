@@ -773,13 +773,30 @@ monthly:"March is your month, Pisces. The Sun illuminates your sign and your per
  
 (function(){var sg=document.getElementById('signGrid');signs.forEach(function(s,i){var b=document.createElement('div');b.className='sign-btn';b.innerHTML='<span class="sign-em">'+s.em+'</span><div class="sign-nm">'+s.name+'</div>';b.onclick=function(){document.querySelectorAll('.sign-btn').forEach(function(x){x.classList.remove('active')});b.classList.add('active');curSign=i;renderHoro()};sg.appendChild(b)})})();
 var curSign=null,curPeriod='daily';
-function setPeriod(p,btn){document.querySelectorAll('.ptab').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');curPeriod=p;renderHoro()}
-function renderHoro(){
+var horoCache={};
+function setPeriod(p,btn){document.querySelectorAll('.ptab').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');curPeriod=p;if(curSign!==null)fetchHoro()}
+function fetchHoro(){
   if(curSign===null)return;
-  var s=signs[curSign],h=horos[s.name];
+  var s=signs[curSign],key=s.name.toLowerCase()+'-'+curPeriod,today=new Date().toDateString();
+  if(horoCache[key]&&horoCache[key].date===today){renderHoroData(s,horoCache[key].text);return}
   var pl={daily:'Daily — Today',weekly:'Weekly — This Week',monthly:'Monthly — This Month'};
-  var dayIdx=new Date().getDay();
-  var text=curPeriod==='daily'?h.daily[dayIdx]:h[curPeriod];
+  document.getElementById('horoEm').textContent=s.em;
+  document.getElementById('horoNm').textContent=s.name+' · '+s.dates;
+  document.getElementById('horoPer').textContent=pl[curPeriod];
+  document.getElementById('horoBody').textContent='✦ Consulting the stars...';
+  document.getElementById('horoBody').style.cssText='color:var(--purple3);font-style:italic';
+  var ex=document.querySelector('.horo-meta');if(ex)ex.remove();
+  fetch('/.netlify/functions/horoscope',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sign:s.name,period:curPeriod})})
+  .then(function(r){return r.json()})
+  .then(function(data){
+    var text=data.horoscope||'The stars are aligning for you today.';
+    horoCache[key]={date:today,text:text};
+    renderHoroData(s,text);
+  })
+  .catch(function(){renderHoroData(s,'The cosmic connection is temporarily unavailable. Please try again.');});
+}
+function renderHoroData(s,text){
+  var pl={daily:'Daily — Today',weekly:'Weekly — This Week',monthly:'Monthly — This Month'};
   document.getElementById('horoEm').textContent=s.em;
   document.getElementById('horoNm').textContent=s.name+' · '+s.dates;
   document.getElementById('horoPer').textContent=pl[curPeriod];
@@ -787,7 +804,7 @@ function renderHoro(){
   document.getElementById('horoBody').style.cssText='color:var(--silver3);font-style:normal';
   var ex=document.querySelector('.horo-meta');if(ex)ex.remove();
   var m=document.createElement('div');m.className='horo-meta';
-  m.innerHTML=[{l:'Element',v:s.el},{l:'Ruling Planet',v:s.ru},{l:'Lucky Day',v:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][curSign%7]}].map(function(a){return'<div class="hm-cell"><div class="hm-lbl">'+a.l+'</div><div class="hm-val">'+a.v+'</div></div>'}).join('');
+  m.innerHTML=[{l:'Element',v:s.el},{l:'Ruling Planet',v:s.ru},{l:'Lucky Day',v:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][signs.indexOf(s)%7]}].map(function(a){return'<div class="hm-cell"><div class="hm-lbl">'+a.l+'</div><div class="hm-val">'+a.v+'</div></div>'}).join('');
   document.getElementById('horoCard').appendChild(m);
 }
  
