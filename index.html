@@ -722,14 +722,22 @@ function fetchHoro(){
   document.getElementById('horoPer').textContent=pl[curPeriod];
   document.getElementById('horoBody').innerHTML='<div class="horo-loading"><div class="horo-spinner"></div>Consulting the stars...</div>';
   var ex=document.querySelector('.horo-meta');if(ex)ex.remove();
-  fetch('https://freehoroscopeapi.com/api/v1/get-horoscope/'+curPeriod+'?sign='+s.name.toLowerCase())
-    .then(function(r){return r.json()})
-    .then(function(data){
-      var text=(data&&data.data&&data.data.horoscope)||'The stars are aligning for you. Check back soon.';
-      horoCache[key]={date:today,text:text};
-      renderHoroData(s,text);
+  fetch('https://api.anthropic.com/v1/messages',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','x-api-key':'','anthropic-version':'2023-06-01'},
+    body:JSON.stringify({
+      model:'claude-haiku-4-5-20251001',
+      max_tokens:200,
+      messages:[{role:'user',content:'Write a '+curPeriod+' horoscope for '+s.name+' for today '+new Date().toDateString()+'. 2-3 sentences, mystical and uplifting tone. Just the horoscope text, no label or sign name.'}]
     })
-    .catch(function(){renderHoroData(s,'The cosmic connection is temporarily unavailable. Please try again in a moment.');});
+  })
+  .then(function(r){return r.json()})
+  .then(function(data){
+    var text=(data&&data.content&&data.content[0]&&data.content[0].text)||'The stars are aligning for you today.';
+    horoCache[key]={date:today,text:text};
+    renderHoroData(s,text);
+  })
+  .catch(function(){renderHoroData(s,'The cosmic connection is temporarily unavailable. Please try again.');});
 }
 function renderHoroData(s,text){
   var pl={daily:'Daily — Today',weekly:'Weekly — This Week',monthly:'Monthly — This Month'};
