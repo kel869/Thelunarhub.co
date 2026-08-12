@@ -228,13 +228,6 @@ footer{background:rgba(6,4,18,.98);border-top:1px solid rgba(124,58,237,.15);pad
 .join-form h3{font-family:'Cinzel',serif;font-weight:700;color:var(--white);font-size:.96rem;margin-bottom:1.2rem}
 /* LEGAL */
 .legal-wrap{max-width:700px;margin:0 auto;padding:3.2rem 1.5rem 4.5rem;position:relative;z-index:1}
-.legal-section{margin-bottom:1.1rem;background:var(--card);border:1px solid rgba(124,58,237,.18);border-radius:14px;overflow:hidden}
-.legal-section h3{font-family:'Cinzel',serif;font-weight:700;color:var(--white);font-size:.9rem;margin-bottom:.55rem}
-.legal-section p{font-size:.82rem;color:var(--silver3);line-height:1.78}
-.legal-section-body{padding:1.35rem}
-.legal-tabs{display:flex;gap:.38rem;margin-bottom:1.6rem}
-.legal-tab{flex:1;padding:.62rem;font-family:'Cinzel',serif;font-weight:700;font-size:.8rem;cursor:pointer;border-radius:8px;letter-spacing:.04em;text-align:center;border:1px solid rgba(124,58,237,.2);color:var(--dim);background:transparent;transition:all .2s;-webkit-tap-highlight-color:transparent}
-.legal-tab.active{background:rgba(124,58,237,.18);border-color:rgba(124,58,237,.45);color:var(--purple3)}
 .faq-item{margin-bottom:.9rem;background:var(--card);border:1px solid rgba(124,58,237,.18);border-radius:14px;overflow:hidden}
 .faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:1.05rem 1.25rem;background:none;border:none;cursor:pointer;text-align:left;gap:.95rem;-webkit-tap-highlight-color:transparent}
 .faq-q span:first-child{font-family:'Cinzel',serif;font-weight:700;color:var(--white);font-size:.86rem}
@@ -294,14 +287,17 @@ footer{background:rgba(6,4,18,.98);border-top:1px solid rgba(124,58,237,.15);pad
 .compat-placeholder{text-align:center;padding:2.5rem;background:var(--card);border:1px solid rgba(124,58,237,.15);border-radius:16px}
 /* MEMBERSHIP */
 .membership-wrap{max-width:660px;margin:0 auto;padding:3.5rem 1.5rem 5rem;position:relative;z-index:1}
+@media(max-width:980px){
+  .nav-menu{display:none}.ham{display:flex}
+}
 @media(max-width:768px){
-  .nav-menu{display:none}.ham{display:flex}.frow{grid-template-columns:1fr}.perks-grid{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr}.perks-grid{grid-template-columns:1fr}
   .astro-tabs{grid-template-columns:1fr 1fr}.planet-grid{grid-template-columns:repeat(3,1fr)}.planet-phases{grid-template-columns:1fr 1fr}
   .dash-wrap{grid-template-columns:1fr}.sidebar{display:none}.mob-nav{display:block}
   .dash-main{padding:1.1rem .95rem 5rem}.stats-grid{grid-template-columns:1fr 1fr}.about-grid{grid-template-columns:1fr}
   .compat-selectors{grid-template-columns:1fr}
 }
-@media(min-width:769px) and (max-width:1010px){
+@media(min-width:981px) and (max-width:1160px){
   .nav-menu{gap:.8rem}.nav-menu a{font-size:.72rem}.nav-btn{padding:.35rem .7rem}
 }
 @media(min-width:769px){
@@ -330,6 +326,7 @@ crossorigin="anonymous"></script>
   <a onclick="go('screen-join')">Join as a Reader</a><div class="mmenu-div"></div>
   <a onclick="go('screen-membership')" style="color:var(--purple3)">✦ Membership</a><div class="mmenu-div"></div>
   <a onclick="go('screen-faq')">FAQ</a><div class="mmenu-div"></div>
+  <a href="/privacy">Privacy Policy</a><div class="mmenu-div"></div>
   <a href="/terms">Terms &amp; Conditions</a><div class="mmenu-div"></div>
   <a onclick="go('screen-login')" style="color:var(--purple3);font-size:1rem!important">🔮 Reader Portal</a>
 </div>
@@ -359,7 +356,7 @@ crossorigin="anonymous"></script>
 <div id="screen-home" class="screen active">
   <nav><div class="logo" onclick="go('screen-home')"><div class="logo-icon">🌙</div><div class="logo-text"><div class="logo-name">The Lunar <em>Hub</em></div><div class="logo-tag">✦ Spiritual Guidance</div></div></div>
   <div class="nav-menu"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-directory')">Find a Psychic</a><a onclick="go('screen-astrology')">Astrology</a>
-<a href="tarot.html">🃏 Tarot</a><a onclick="go('screen-compat')">Compatibility</a><a onclick="go('screen-join')">Join</a><a onclick="go('screen-membership')" style="color:var(--purple3)">Membership</a><a href="/terms">Terms</a><a onclick="go('screen-login')" class="nav-btn">Reader Portal</a></div>
+<a href="tarot.html">🃏 Tarot</a><a onclick="go('screen-compat')">Compatibility</a><a onclick="go('screen-join')">Join</a><a onclick="go('screen-membership')" style="color:var(--purple3)">Membership</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a onclick="go('screen-login')" class="nav-btn">Reader Portal</a></div>
   <button class="ham" id="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button></nav>
   <div class="hero">
     <div class="hero-content">
@@ -402,7 +399,7 @@ crossorigin="anonymous"></script>
   </div>
   <footer>
     <div class="footer-logo">The Lunar <em>Hub</em></div>
-    <div class="footer-links"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-directory')">Find a Psychic</a><a onclick="go('screen-astrology')">Astrology</a><a onclick="go('screen-compat')">Compatibility</a><a onclick="go('screen-join')">Join as a Reader</a><a onclick="go('screen-membership')">Membership</a><a onclick="go('screen-faq')">FAQ</a><a onclick="go('screen-privacy')">Privacy Policy</a><a href="/terms">Terms & Conditions</a></div>
+    <div class="footer-links"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-directory')">Find a Psychic</a><a onclick="go('screen-astrology')">Astrology</a><a onclick="go('screen-compat')">Compatibility</a><a onclick="go('screen-join')">Join as a Reader</a><a onclick="go('screen-membership')">Membership</a><a onclick="go('screen-faq')">FAQ</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms & Conditions</a></div>
     <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(124,58,237,.2),transparent);margin:.8rem auto;max-width:380px"></div>
     <p class="footer-disc">All readings are for entertainment purposes only. Must be 18+. The Lunar Hub is a hosting platform only.</p>
     <p style="font-size:.72rem;color:var(--dim);margin-top:.4rem">Support: <a href="mailto:houseovirgo@gmail.com" style="color:var(--purple3)">houseovirgo@gmail.com</a></p>
@@ -412,16 +409,16 @@ crossorigin="anonymous"></script>
 
 <!-- DIRECTORY -->
 <div id="screen-directory" class="screen">
-  <nav><div class="logo" onclick="go('screen-home')"><div class="logo-icon">🌙</div><div class="logo-text"><div class="logo-name">The Lunar <em>Hub</em></div><div class="logo-tag">✦ Spiritual Guidance</div></div></div><div class="nav-menu"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-astrology')">Astrology</a><a onclick="go('screen-compat')">Compatibility</a><a onclick="go('screen-join')">Join</a><a href="/terms">Terms</a><a onclick="go('screen-login')" class="nav-btn">Reader Portal</a></div><button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button></nav>
+  <nav><div class="logo" onclick="go('screen-home')"><div class="logo-icon">🌙</div><div class="logo-text"><div class="logo-name">The Lunar <em>Hub</em></div><div class="logo-tag">✦ Spiritual Guidance</div></div></div><div class="nav-menu"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-astrology')">Astrology</a><a onclick="go('screen-compat')">Compatibility</a><a onclick="go('screen-join')">Join</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a onclick="go('screen-login')" class="nav-btn">Reader Portal</a></div><button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button></nav>
   <div class="page-hero"><div class="badge">✦ Verified Spiritual Guides</div><h1 class="stitle">Find Your <em>Psychic Reader</em></h1><p class="ssub" style="margin-bottom:0">Hand-picked for their gift, integrity, and ability to connect.</p></div>
   <div class="filters"><button class="filter-btn active" onclick="filterR('all',this)">All</button><button class="filter-btn" onclick="filterR('tarot',this)">🃏 Tarot</button><button class="filter-btn" onclick="filterR('medium',this)">💬 Mediumship</button><button class="filter-btn" onclick="filterR('astrology',this)">🌟 Astrology</button><button class="filter-btn" onclick="filterR('energy',this)">⚡ Energy</button><button class="filter-btn" onclick="filterR('dream',this)">😴 Dreams</button></div>
   <div class="psychics-grid" id="readersGrid"></div>
-  <footer><div class="footer-logo">The Lunar <em>Hub</em></div><div class="footer-links"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-join')">Join as a Reader</a><a onclick="go('screen-faq')">FAQ</a><a onclick="go('screen-privacy')">Privacy Policy</a><a href="/terms">Terms</a></div><p class="footer-copy" style="margin-top:.7rem">© 2026 The Lunar Hub. All rights reserved.</p></footer>
+  <footer><div class="footer-logo">The Lunar <em>Hub</em></div><div class="footer-links"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-join')">Join as a Reader</a><a onclick="go('screen-faq')">FAQ</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms</a></div><p class="footer-copy" style="margin-top:.7rem">© 2026 The Lunar Hub. All rights reserved.</p></footer>
 </div>
 
 <!-- ASTROLOGY -->
 <div id="screen-astrology" class="screen">
-  <nav><div class="logo" onclick="go('screen-home')"><div class="logo-icon">🌙</div><div class="logo-text"><div class="logo-name">The Lunar <em>Hub</em></div><div class="logo-tag">✦ Spiritual Guidance</div></div></div><div class="nav-menu"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-directory')">Find a Psychic</a><a onclick="go('screen-compat')">Compatibility</a><a href="/terms">Terms</a><a onclick="go('screen-login')" class="nav-btn">Reader Portal</a></div><button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button></nav>
+  <nav><div class="logo" onclick="go('screen-home')"><div class="logo-icon">🌙</div><div class="logo-text"><div class="logo-name">The Lunar <em>Hub</em></div><div class="logo-tag">✦ Spiritual Guidance</div></div></div><div class="nav-menu"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-directory')">Find a Psychic</a><a onclick="go('screen-compat')">Compatibility</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a onclick="go('screen-login')" class="nav-btn">Reader Portal</a></div><button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button></nav>
   <div class="page-hero"><div class="badge">✦ Cosmic Insights</div><h1 class="stitle">Astrology <em>Hub</em></h1><p class="ssub" style="margin-bottom:0">Birth charts, moon phases, horoscopes & Chinese astrology.</p></div>
   <div class="astro-tabs"><button class="atab active" onclick="aTab('birth',this)">🔯 Birth Chart</button><button class="atab" onclick="aTab('moon',this)">🌙 Moon & Planets</button><button class="atab" onclick="aTab('horo',this)">⭐ Horoscopes</button><button class="atab" onclick="aTab('chinese',this)">🐉 Chinese</button></div>
   <div id="panel-birth" class="apanel active">
@@ -461,7 +458,7 @@ crossorigin="anonymous"></script>
 
 <!-- COMPATIBILITY -->
 <div id="screen-compat" class="screen">
-  <nav><div class="logo" onclick="go('screen-home')"><div class="logo-icon">🌙</div><div class="logo-text"><div class="logo-name">The Lunar <em>Hub</em></div><div class="logo-tag">✦ Spiritual Guidance</div></div></div><div class="nav-menu"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-astrology')">Astrology</a><a onclick="go('screen-directory')">Find a Psychic</a><a href="/terms">Terms</a></div><button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button></nav>
+  <nav><div class="logo" onclick="go('screen-home')"><div class="logo-icon">🌙</div><div class="logo-text"><div class="logo-name">The Lunar <em>Hub</em></div><div class="logo-tag">✦ Spiritual Guidance</div></div></div><div class="nav-menu"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-astrology')">Astrology</a><a onclick="go('screen-directory')">Find a Psychic</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div><button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button></nav>
   <div class="compat-wrap">
     <div style="text-align:center;margin-bottom:2.2rem">
       <div class="badge">✦ Cosmic Compatibility</div>
@@ -498,7 +495,7 @@ crossorigin="anonymous"></script>
 
 <!-- JOIN -->
 <div id="screen-join" class="screen">
-  <nav><div class="logo" onclick="go('screen-home')"><div class="logo-icon">🌙</div><div class="logo-text"><div class="logo-name">The Lunar <em>Hub</em></div><div class="logo-tag">✦ Spiritual Guidance</div></div></div><div class="nav-menu"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-directory')">Find a Psychic</a><a href="/terms">Terms</a><a onclick="go('screen-login')" class="nav-btn">Reader Portal</a></div><button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button></nav>
+  <nav><div class="logo" onclick="go('screen-home')"><div class="logo-icon">🌙</div><div class="logo-text"><div class="logo-name">The Lunar <em>Hub</em></div><div class="logo-tag">✦ Spiritual Guidance</div></div></div><div class="nav-menu"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-directory')">Find a Psychic</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a onclick="go('screen-login')" class="nav-btn">Reader Portal</a></div><button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button></nav>
   <div class="join-wrap">
     <div style="text-align:center;margin-bottom:2.2rem"><div class="badge">✦ Join the Constellation</div><h1 class="stitle">Join the <em>Psychic Team</em></h1><p class="ssub">We hand-pick only the most gifted, authentic spiritual guides.</p></div>
     <div class="perks-grid">
@@ -518,12 +515,12 @@ crossorigin="anonymous"></script>
       <p style="text-align:center;font-size:.76rem;color:var(--dim);margin-top:.85rem">Questions? <a href="mailto:houseovirgo@gmail.com" style="color:var(--purple3)">houseovirgo@gmail.com</a></p>
     </div>
   </div>
-  <footer><div class="footer-logo">The Lunar <em>Hub</em></div><div class="footer-links"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-faq')">FAQ</a><a onclick="go('screen-privacy')">Privacy Policy</a><a href="/terms">Terms</a></div><p class="footer-copy" style="margin-top:.5rem">© 2026 The Lunar Hub. All rights reserved.</p></footer>
+  <footer><div class="footer-logo">The Lunar <em>Hub</em></div><div class="footer-links"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-faq')">FAQ</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms</a></div><p class="footer-copy" style="margin-top:.5rem">© 2026 The Lunar Hub. All rights reserved.</p></footer>
 </div>
 
 <!-- MEMBERSHIP -->
 <div id="screen-membership" class="screen">
-  <nav><div class="logo" onclick="go('screen-home')"><div class="logo-icon">🌙</div><div class="logo-text"><div class="logo-name">The Lunar <em>Hub</em></div><div class="logo-tag">✦ Spiritual Guidance</div></div></div><div class="nav-menu"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-join')">Apply</a><a href="/terms">Terms</a></div><button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button></nav>
+  <nav><div class="logo" onclick="go('screen-home')"><div class="logo-icon">🌙</div><div class="logo-text"><div class="logo-name">The Lunar <em>Hub</em></div><div class="logo-tag">✦ Spiritual Guidance</div></div></div><div class="nav-menu"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-join')">Apply</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div><button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button></nav>
   <div class="membership-wrap">
     <div style="text-align:center;margin-bottom:2.5rem"><div class="badge">✦ Reader Membership</div><h1 class="stitle">Join The Lunar <em>Hub</em></h1><p class="ssub">Get your profile in front of seekers. You handle your own bookings — we handle the exposure.</p></div>
     <div style="background:var(--card);border:1px solid rgba(124,58,237,.2);border-radius:16px;padding:1.7rem;margin-bottom:1.4rem">
@@ -557,21 +554,14 @@ crossorigin="anonymous"></script>
     </div>
     <div style="text-align:center"><p style="font-size:.82rem;color:var(--silver3);margin-bottom:1.1rem;line-height:1.7">Not yet applied? Start your application first.</p><button class="btn btn-secondary btn-block" style="margin-bottom:.65rem" onclick="go('screen-join')">Apply to Join as a Reader →</button><button class="btn btn-outline btn-block" onclick="go('screen-home')">← Back to Site</button></div>
   </div>
-  <footer><div class="footer-logo">The Lunar <em>Hub</em></div><div class="footer-links"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-join')">Apply</a><a onclick="go('screen-faq')">FAQ</a><a onclick="go('screen-privacy')">Privacy</a><a href="/terms">Terms</a></div><p class="footer-copy" style="margin-top:.5rem">© 2026 The Lunar Hub. All rights reserved.</p></footer>
+  <footer><div class="footer-logo">The Lunar <em>Hub</em></div><div class="footer-links"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-join')">Apply</a><a onclick="go('screen-faq')">FAQ</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div><p class="footer-copy" style="margin-top:.5rem">© 2026 The Lunar Hub. All rights reserved.</p></footer>
 </div>
 
 <!-- FAQ -->
 <div id="screen-faq" class="screen">
-  <nav><div class="logo" onclick="go('screen-home')"><div class="logo-icon">🌙</div><div class="logo-text"><div class="logo-name">The Lunar <em>Hub</em></div><div class="logo-tag">✦ Spiritual Guidance</div></div></div><div class="nav-menu"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-directory')">Find a Psychic</a><a href="/terms">Terms</a></div><button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button></nav>
+  <nav><div class="logo" onclick="go('screen-home')"><div class="logo-icon">🌙</div><div class="logo-text"><div class="logo-name">The Lunar <em>Hub</em></div><div class="logo-tag">✦ Spiritual Guidance</div></div></div><div class="nav-menu"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-directory')">Find a Psychic</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div><button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button></nav>
   <div class="legal-wrap"><div style="text-align:center;margin-bottom:2.5rem"><div class="badge">✦ Help Center</div><h1 class="stitle">Frequently Asked <em>Questions</em></h1><p class="ssub">Everything you need to know about getting a reading on The Lunar Hub.</p></div><div id="faqList"></div><div style="text-align:center;margin-top:2.2rem;padding:1.8rem;background:var(--card);border:1px solid rgba(124,58,237,.2);border-radius:16px"><div style="font-size:1.8rem;margin-bottom:.55rem">🔮</div><div style="font-family:'Cinzel',serif;font-weight:700;color:var(--white);font-size:.95rem;margin-bottom:.38rem">Still have questions?</div><p style="font-size:.82rem;color:var(--silver3);margin-bottom:1.1rem;line-height:1.7">We're here to help. Email us directly.</p><a href="mailto:houseovirgo@gmail.com" class="btn btn-primary">✉️ houseovirgo@gmail.com</a></div></div>
-  <footer><div class="footer-logo">The Lunar <em>Hub</em></div><div class="footer-links"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-faq')">FAQ</a><a onclick="go('screen-privacy')">Privacy Policy</a><a href="/terms">Terms & Conditions</a></div><p class="footer-copy" style="margin-top:.7rem">© 2026 The Lunar Hub. All rights reserved.</p></footer>
-</div>
-
-<!-- PRIVACY -->
-<div id="screen-privacy" class="screen">
-  <nav><div class="logo" onclick="go('screen-home')"><div class="logo-icon">🌙</div><div class="logo-text"><div class="logo-name">The Lunar <em>Hub</em></div><div class="logo-tag">✦ Spiritual Guidance</div></div></div><div class="nav-menu"><a onclick="go('screen-home')">Home</a><a href="/terms">Terms</a></div><button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button></nav>
-  <div class="legal-wrap"><div style="text-align:center;margin-bottom:2.5rem"><div class="badge">✦ Legal</div><h1 class="stitle">Privacy <em>Policy</em></h1><p style="font-size:.76rem;color:var(--dim)">Last updated: January 2026</p></div><div id="privacyContent"></div></div>
-  <footer><div class="footer-logo">The Lunar <em>Hub</em></div><div class="footer-links"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-faq')">FAQ</a><a onclick="go('screen-privacy')">Privacy Policy</a><a href="/terms">Terms & Conditions</a></div><p class="footer-copy" style="margin-top:.7rem">© 2026 The Lunar Hub. All rights reserved.</p></footer>
+  <footer><div class="footer-logo">The Lunar <em>Hub</em></div><div class="footer-links"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-faq')">FAQ</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms & Conditions</a></div><p class="footer-copy" style="margin-top:.7rem">© 2026 The Lunar Hub. All rights reserved.</p></footer>
 </div>
 
 <!-- LOGIN -->
@@ -844,24 +834,6 @@ function getMoon(d){return['Taurus','Gemini','Cancer','Leo','Virgo','Libra','Sco
 function getRising(t){if(!t)return'Unknown';return['Aries','Taurus','Gemini','Cancer','Leo','Virgo','Libra','Scorpio','Sagittarius','Capricorn','Aquarius','Pisces'][Math.floor(parseInt(t.split(':')[0])/2)%12]}
 function calcChart(){var name=document.getElementById('bcName').value||'Your',dob=document.getElementById('bcDob').value,time=document.getElementById('bcTime').value;if(!dob){alert('Please enter your date of birth');return}var sun=getSun(dob),moon=getMoon(dob),rising=getRising(time);var pSigns=[sun,moon,'Virgo','Libra','Aries','Aquarius','Pisces','Taurus','Aries','Aquarius'];var pData=planets.map(function(p,i){return{sym:p.sym,name:p.name,sign:pSigns[i]||p.sign,deg:Math.floor(Math.random()*29+1)+'°'}});document.getElementById('chartTitle').textContent=name+"'s Birth Chart";document.getElementById('wheelInner').innerHTML='☉<br/>'+sun;var wheel=document.getElementById('chartWheel');wheel.querySelectorAll('.wsign').forEach(function(e){e.remove()});var r=90,cx=105,cy=105;signs.forEach(function(s,i){var a=(i/12)*360-90,x=cx+r*Math.cos(a*Math.PI/180)-6,y=cy+r*Math.sin(a*Math.PI/180)-6,el=document.createElement('div');el.className='wsign';el.textContent=s.em;el.style.cssText='left:'+x+'px;top:'+y+'px;font-size:.58rem';wheel.appendChild(el)});document.getElementById('planetGrid').innerHTML=pData.map(function(p){return'<div class="planet-cell"><div class="pc-sym">'+p.sym+'</div><div class="pc-name">'+p.name+'</div><div class="pc-sign">'+p.sign+'</div><div class="pc-deg">'+p.deg+'</div></div>'}).join('');document.getElementById('aspectList').innerHTML=[{sym:'☌',type:'Conjunction',desc:sun+' Sun · '+moon+' Moon'},{sym:'△',type:'Trine',desc:'Venus trine Jupiter'},{sym:'□',type:'Square',desc:'Mars square Saturn'},{sym:'✶',type:'Sextile',desc:'Mercury sextile Neptune'},{sym:'☍',type:'Opposition',desc:'Sun opposite '+rising+' Rising'}].map(function(a){return'<div class="aspect-row"><span class="asp-sym">'+a.sym+'</span><span class="asp-desc">'+a.desc+'</span><span class="asp-type">'+a.type+'</span></div>'}).join('');document.getElementById('chartResult').style.display='block';document.getElementById('chartResult').scrollIntoView({behavior:'smooth',block:'start'})}
 
-// ── LEGAL ──
-var ls='style="margin-bottom:1rem;background:var(--card);border:1px solid rgba(124,58,237,.18);border-radius:14px;overflow:hidden"';
-var lp='style="padding:1.3rem"';
-var lt='style="font-family:\'Cinzel\',serif;font-weight:700;color:var(--white);font-size:.9rem;margin-bottom:.52rem"';
-var lb='style="font-size:.82rem;color:var(--silver3);line-height:1.78"';
-function lsec(t,b){return'<div '+ls+'><div '+lp+'><h3 '+lt+'>'+t+'</h3><p '+lb+'>'+b+'</p></div></div>'}
-function buildLegal(elId,tabs,data){
-  var el=document.getElementById(elId),keys=Object.keys(data);
-  var html='<div style="display:flex;gap:.38rem;margin-bottom:1.5rem">';
-  keys.forEach(function(k,i){html+='<button class="legal-tab'+(i===0?' active':'')+'" onclick="switchLegal(\''+elId+'\',\''+k+'\',this)">'+tabs[k]+'</button>'});
-  html+='</div>';
-  keys.forEach(function(k,i){html+='<div id="'+elId+'-'+k+'" style="display:'+(i===0?'block':'none')+'">'+data[k]+'</div>'});
-  el.innerHTML=html
-}
-function switchLegal(container,tab,btn){document.getElementById(container).querySelectorAll('.legal-tab').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');['users','readers'].forEach(function(k){var d=document.getElementById(container+'-'+k);if(d)d.style.display=k===tab?'block':'none'})}
-var pU=lsec('1. Information We Collect','When you use The Lunar Hub, we may collect your name, email address, and details shared in inquiry or booking forms. We do not collect payment information directly.')+lsec('2. How We Use Your Information','We use collected information to facilitate connections between you and readers, respond to inquiries, and improve our platform. We will never sell your personal information.')+lsec('3. Sharing with Readers','When you submit a booking inquiry, your name, contact details, and session request will be shared with your chosen reader solely to facilitate your session.')+lsec('4. Session Confidentiality','All communications during a reading session are intended to remain private between you and your reader. The Lunar Hub does not access or record session content.')+lsec('5. Data Security','We implement reasonable security measures to protect your personal information. No method of internet transmission is 100% secure.')+lsec('6. Your Rights','You have the right to request access to, correction of, or deletion of any personal information we hold. Contact us at houseovirgo@gmail.com.')+lsec('7. Children\'s Privacy','The Lunar Hub is for users aged 18 and over. We do not knowingly collect information from anyone under 18.');
-var pR=lsec('1. Information We Collect from Readers','When you apply to join as a reader, we collect your name, display name, email, social handles, bio, specialty, and years of experience to evaluate your application and build your public profile.')+lsec('2. Public Profile Information','Once approved, your display name, bio, specialty, photo, and booking link will be publicly visible in our directory.')+lsec('3. How We Use Reader Information','We use your information to manage your listing, facilitate client connections, and communicate platform updates. We do not sell your personal information.')+lsec('4. Client Inquiry Data','When a client submits an inquiry to you, we forward their name, email, session type, and message. You must handle this information confidentially.')+lsec('5. Data Retention','We retain reader profile data for as long as you remain active on the platform. Upon removal, your public profile will be taken down promptly.')+lsec('6. Your Rights as a Reader','You have the right to access, update, or request deletion of any personal information we hold. Contact us at houseovirgo@gmail.com.');
-buildLegal('privacyContent',{'users':'👤 For Users','readers':'🔮 For Readers'},{users:pU,readers:pR});
 
 // ── FAQ ──
 var faqs=[{q:'How do I book a reading?',a:'Browse our reader directory and choose the reader that resonates with you. You can book directly via Calendly for instant scheduling, or send an inquiry through the contact form and your reader will reach out to arrange your session.'},{q:'What types of readings are available?',a:'The Lunar Hub offers three session formats: Text Readings (written guidance), Voice Recordings (a personal audio reading), and Phone Audio (a live phone call). No video calls.'},{q:'How long is a session?',a:'Session lengths vary by reader and are agreed upon at the time of booking. Typical sessions range from 20 to 60 minutes. Your reader will confirm the length when scheduling.'},{q:'Is my information private?',a:'Absolutely. We do not sell or share your personal information. All communications between you and your reader are confidential. Please review our full Privacy Policy for details.'},{q:'Can I get a refund?',a:'Refund policies are set by individual readers. If you have a concern about a session, please contact us at houseovirgo@gmail.com and we will do our best to assist.'},{q:'How are readers vetted?',a:'Every reader is personally hand-picked by our founder. We review their experience, testimonials, and specialty, and conduct a personal interview before onboarding.'},{q:'What payment methods are accepted?',a:'Payment is handled directly between you and your reader at the time of booking. Most readers accept major credit and debit cards through secure platforms like Calendly or PayPal.'}];
