@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+<title>Terms &amp; Conditions · The Lunar Hub</title>
+<meta name="description" content="The Terms & Conditions for using The Lunar Hub — for seekers booking readings and for independent readers listed in our directory."/>
+<link rel="canonical" href="https://thelunarhub.co/terms"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HC3G7M0FDG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HC3G7M0FDG');
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#08061a;--card:#0e0b24;--card2:#130f2e;--purple:#7c3aed;--purple2:#a855f7;--purple3:#c084fc;--silver:#e2e8f0;--silver2:#cbd5e1;--silver3:#94a3b8;--white:#f8fafc;--dim:#64748b;--gold:#f1c40f;--green:#10b981}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--silver);overflow-x:hidden;min-height:100vh}
+#starfield{position:fixed;inset:0;z-index:0;pointer-events:none}
+.neb{position:fixed;border-radius:50%;pointer-events:none;z-index:0}
+.neb1{width:600px;height:600px;background:radial-gradient(ellipse,rgba(124,58,237,.14),transparent 70%);top:-200px;right:-150px;filter:blur(80px)}
+.neb2{width:500px;height:500px;background:radial-gradient(ellipse,rgba(168,85,247,.1),transparent 70%);bottom:-100px;left:-100px;filter:blur(80px)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shimmer-line{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes moon-pulse{0%,100%{box-shadow:0 0 14px rgba(124,58,237,.5),0 0 28px rgba(124,58,237,.2)}50%{box-shadow:0 0 22px rgba(192,132,252,.8),0 0 45px rgba(124,58,237,.35)}}
+nav{position:sticky;top:0;z-index:200;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;background:rgba(8,6,26,.96);border-bottom:1px solid rgba(124,58,237,.25);backdrop-filter:blur(20px);box-shadow:0 1px 30px rgba(124,58,237,.12)}
+nav::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(192,132,252,.6),rgba(124,58,237,.9),rgba(192,132,252,.6),transparent);animation:shimmer-line 3s ease-in-out infinite}
+.logo{display:flex;align-items:center;gap:.6rem;cursor:pointer;flex-shrink:0;text-decoration:none}
+.logo-icon{width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(192,132,252,.9),rgba(124,58,237,.7) 50%,rgba(60,20,120,.8));border:1px solid rgba(192,132,252,.4);display:flex;align-items:center;justify-content:center;font-size:1.1rem;animation:moon-pulse 4s ease-in-out infinite;flex-shrink:0}
+.logo-text{display:flex;flex-direction:column;gap:1px}
+.logo-name{font-family:'Cinzel',serif;font-weight:900;font-size:1rem;color:var(--white);letter-spacing:.06em;white-space:nowrap;line-height:1}
+.logo-name em{font-style:normal;color:var(--purple3)}
+.logo-tag{font-size:.55rem;color:rgba(192,132,252,.55);letter-spacing:.18em;text-transform:uppercase;line-height:1;white-space:nowrap}
+.nav-menu{display:flex;align-items:center;gap:1.2rem}
+.nav-menu a{color:var(--silver3);font-size:.75rem;font-weight:500;cursor:pointer;text-decoration:none;transition:color .2s;white-space:nowrap}
+.nav-menu a:hover{color:var(--purple3)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.3rem}
+.ham span{display:block;width:22px;height:2px;background:var(--silver2);border-radius:2px;transition:all .3s}
+.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham.open span:nth-child(2){opacity:0}
+.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mmenu{display:none;position:fixed;inset:0;background:rgba(8,6,26,.98);z-index:190;flex-direction:column;align-items:center;justify-content:center;gap:1.8rem}
+.mmenu.open{display:flex}
+.mmenu a{font-family:'Cinzel',serif;font-size:1.15rem;color:var(--silver2);cursor:pointer;text-decoration:none;letter-spacing:.06em;transition:color .2s;text-align:center}
+.mmenu a:hover{color:var(--purple3)}
+.mmenu-div{width:40px;height:1px;background:rgba(124,58,237,.3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;padding:.72rem 1.4rem;font-family:'Inter',sans-serif;font-weight:600;font-size:.84rem;cursor:pointer;border:none;border-radius:8px;text-decoration:none;transition:all .2s;-webkit-tap-highlight-color:transparent;white-space:nowrap}
+.btn-secondary{background:rgba(124,58,237,.12);color:var(--purple3);border:1px solid rgba(124,58,237,.35)}
+.badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.28);color:var(--purple3);font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.24rem .78rem;border-radius:999px;margin-bottom:.9rem}
+.stitle{font-family:'Cinzel',serif;font-weight:700;font-size:clamp(1.35rem,4vw,1.9rem);color:var(--white);margin-bottom:.5rem}
+.stitle em{font-style:normal;color:var(--purple3)}
+/* LEGAL */
+.legal-wrap{max-width:700px;margin:0 auto;padding:3.2rem 1.5rem 4.5rem;position:relative;z-index:1;animation:fadeUp .4s ease}
+.legal-section{margin-bottom:1.1rem;background:var(--card);border:1px solid rgba(124,58,237,.18);border-radius:14px;overflow:hidden}
+.legal-section h3{font-family:'Cinzel',serif;font-weight:700;color:var(--white);font-size:.9rem;margin-bottom:.55rem}
+.legal-section p{font-size:.82rem;color:var(--silver3);line-height:1.78}
+.legal-section-body{padding:1.35rem}
+.legal-tabs{display:flex;gap:.38rem;margin-bottom:1.6rem}
+.legal-tab{flex:1;padding:.62rem;font-family:'Cinzel',serif;font-weight:700;font-size:.8rem;cursor:pointer;border-radius:8px;letter-spacing:.04em;text-align:center;border:1px solid rgba(124,58,237,.2);color:var(--dim);background:transparent;transition:all .2s;-webkit-tap-highlight-color:transparent}
+.legal-tab.active{background:rgba(124,58,237,.18);border-color:rgba(124,58,237,.45);color:var(--purple3)}
+footer{background:rgba(6,4,18,.98);border-top:1px solid rgba(124,58,237,.15);padding:2.5rem 1.5rem 1.8rem;text-align:center;position:relative;z-index:1}
+.footer-logo{font-family:'Cinzel',serif;font-weight:900;font-size:1.05rem;color:var(--white);margin-bottom:.35rem}
+.footer-logo em{font-style:normal;color:var(--purple3)}
+.footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.1rem;margin:.6rem 0;font-size:.74rem}
+.footer-links a{color:var(--dim);text-decoration:none;transition:color .2s;cursor:pointer}
+.footer-links a:hover{color:var(--purple3)}
+.footer-copy{font-size:.66rem;color:var(--dim);margin-top:.5rem}
+@media(max-width:768px){.nav-menu{display:none}.ham{display:flex}}
+</style>
+</head>
+<body>
+<canvas id="starfield"></canvas>
+<div class="neb neb1"></div>
+<div class="neb neb2"></div>
+
+<!-- MOBILE MENU -->
+<div class="mmenu" id="mmenu">
+  <a href="/">Home</a><div class="mmenu-div"></div>
+  <a href="/">Find a Psychic</a><div class="mmenu-div"></div>
+  <a href="/">Astrology Hub</a><div class="mmenu-div"></div>
+  <a href="/tarot" style="color:var(--purple3)">🃏 Daily Tarot</a><div class="mmenu-div"></div>
+  <a href="/">Join as a Reader</a><div class="mmenu-div"></div>
+  <a href="/terms" style="color:var(--purple3)">Terms &amp; Conditions</a>
+</div>
+
+<nav>
+  <a href="/" class="logo">
+    <div class="logo-icon">🌙</div>
+    <div class="logo-text">
+      <div class="logo-name">The Lunar <em>Hub</em></div>
+      <div class="logo-tag">✦ Spiritual Guidance</div>
+    </div>
+  </a>
+  <div class="nav-menu">
+    <a href="/">Home</a>
+    <a href="/">Find a Psychic</a>
+    <a href="/tarot">🃏 Tarot</a>
+    <a href="/terms" style="color:var(--purple3)">Terms</a>
+  </div>
+  <button class="ham" id="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="legal-wrap">
+  <div style="text-align:center;margin-bottom:2.5rem">
+    <div class="badge">✦ Legal</div>
+    <h1 class="stitle">Terms &amp; <em>Conditions</em></h1>
+    <p style="font-size:.76rem;color:var(--dim)">Last updated: January 2026</p>
+  </div>
+
+  <div class="legal-tabs">
+    <button class="legal-tab active" data-tab="users" onclick="switchLegal('users',this)">👤 For Users</button>
+    <button class="legal-tab" data-tab="readers" onclick="switchLegal('readers',this)">🔮 For Readers</button>
+  </div>
+
+  <div id="terms-users">
+    <div class="legal-section"><div class="legal-section-body"><h3>1. Acceptance of Terms</h3><p>By accessing The Lunar Hub at thelunarhub.co, you agree to these Terms. You must be at least 18 years of age.</p></div></div>
+    <div class="legal-section"><div class="legal-section-body"><h3>2. Entertainment Purposes Only</h3><p>All readings, horoscopes, and astrological content are strictly for entertainment purposes only. Nothing constitutes professional legal, financial, medical, or psychological advice.</p></div></div>
+    <div class="legal-section"><div class="legal-section-body"><h3>3. Platform Role</h3><p>The Lunar Hub is a hosting platform connecting independent psychic readers with clients. We are not responsible for the accuracy, quality, or outcome of any reading.</p></div></div>
+    <div class="legal-section"><div class="legal-section-body"><h3>4. User Conduct</h3><p>You agree to use The Lunar Hub respectfully and lawfully. Harassment or abusive behavior toward readers or other users will result in immediate removal.</p></div></div>
+    <div class="legal-section"><div class="legal-section-body"><h3>5. Bookings &amp; Payments</h3><p>Payment is handled directly between clients and readers through third-party platforms. The Lunar Hub is not liable for payment disputes.</p></div></div>
+    <div class="legal-section"><div class="legal-section-body"><h3>6. Refund Policy</h3><p>Refund policies are determined by individual readers. Contact your reader directly or reach out to us for assistance.</p></div></div>
+    <div class="legal-section"><div class="legal-section-body"><h3>7. Limitation of Liability</h3><p>The Lunar Hub shall not be liable for any damages arising from your use of the platform or any reading provided by a reader.</p></div></div>
+    <div class="legal-section"><div class="legal-section-body"><h3>8. Governing Law</h3><p>These Terms are governed by the laws of the United States.</p></div></div>
+  </div>
+
+  <div id="terms-readers" style="display:none">
+    <div class="legal-section"><div class="legal-section-body"><h3>1. Reader Agreement</h3><p>By joining The Lunar Hub as a reader, you agree to these Reader Terms governing your relationship with The Lunar Hub as an independent practitioner.</p></div></div>
+    <div class="legal-section"><div class="legal-section-body"><h3>2. Independent Contractor Status</h3><p>You are an independent contractor, not an employee of The Lunar Hub. You are solely responsible for your own taxes, insurance, and business compliance.</p></div></div>
+    <div class="legal-section"><div class="legal-section-body"><h3>3. Reader Standards &amp; Conduct</h3><p>You agree to conduct yourself professionally and ethically at all times. Misrepresenting your abilities or taking advantage of vulnerable clients is strictly prohibited.</p></div></div>
+    <div class="legal-section"><div class="legal-section-body"><h3>4. Profile Accuracy</h3><p>You are responsible for ensuring your reader profile, bio, specialty, and all listing content is accurate and truthful.</p></div></div>
+    <div class="legal-section"><div class="legal-section-body"><h3>5. Pricing &amp; Payments</h3><p>You set your own rates and collect payment directly from clients. The Lunar Hub is not involved in financial transactions between you and your clients.</p></div></div>
+    <div class="legal-section"><div class="legal-section-body"><h3>6. Client Confidentiality</h3><p>You agree to maintain strict confidentiality of all client information, communications, and session content.</p></div></div>
+    <div class="legal-section"><div class="legal-section-body"><h3>7. Platform Usage</h3><p>Your listing on The Lunar Hub is a privilege. We reserve the right to suspend or remove any reader listing at any time.</p></div></div>
+    <div class="legal-section"><div class="legal-section-body"><h3>8. Termination</h3><p>Either party may terminate the reader listing at any time. Your profile will be removed from the directory upon termination.</p></div></div>
+  </div>
+
+  <div style="text-align:center;margin-top:2rem">
+    <a href="/" class="btn btn-secondary">← Back to The Lunar Hub</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">The Lunar <em>Hub</em></div>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/">FAQ</a>
+    <a href="/">Privacy Policy</a>
+    <a href="/terms">Terms &amp; Conditions</a>
+  </div>
+  <p class="footer-copy">© 2026 The Lunar Hub. All rights reserved.</p>
+</footer>
+
+<script>
+// ── STARS ──
+(function(){var c=document.getElementById('starfield'),ctx=c.getContext('2d'),W,H,stars=[];function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;stars=[];for(var i=0;i<240;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.3+.2,o:Math.random(),s:Math.random()*.014+.004,d:Math.random()>.5?1:-1})}function draw(){ctx.clearRect(0,0,W,H);for(var i=0;i<stars.length;i++){var s=stars[i];s.o+=s.s*s.d;if(s.o>1||s.o<.1)s.d*=-1;var g=ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*2.5);g.addColorStop(0,'rgba(220,210,255,'+s.o+')');g.addColorStop(1,'transparent');ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=g;ctx.fill()}requestAnimationFrame(draw)}resize();window.addEventListener('resize',resize);draw()})();
+
+function toggleMenu(){
+  document.querySelectorAll('.ham').forEach(function(h){h.classList.toggle('open')});
+  document.getElementById('mmenu').classList.toggle('open');
+}
+
+function switchLegal(tab,btn){
+  document.querySelectorAll('.legal-tab').forEach(function(b){b.classList.remove('active')});
+  btn.classList.add('active');
+  ['users','readers'].forEach(function(k){
+    var d=document.getElementById('terms-'+k);
+    if(d)d.style.display=k===tab?'block':'none'
+  })
+}
+</script>
+</body>
+</html>
