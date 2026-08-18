@@ -2,6 +2,11 @@
   functions = "netlify/functions"
 
 [[redirects]]
+  from = "/findyourpsychicreader"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
   from = "/tarot"
   to = "/tarot.html"
   status = 200
