@@ -28,5 +28,5 @@
 
 [[redirects]]
   from = "/membership"
-  to = "/membership.html"
+  to = "/index.html"
   status = 200
