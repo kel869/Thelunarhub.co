@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+<title>Reader Membership · The Lunar Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#08061a;--card:#0e0b24;--card2:#130f2e;--purple:#7c3aed;--purple2:#a855f7;--purple3:#c084fc;--silver:#e2e8f0;--silver2:#cbd5e1;--silver3:#94a3b8;--white:#f8fafc;--dim:#64748b;--gold:#f1c40f;--green:#10b981}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--silver);overflow-x:hidden;min-height:100vh}
+#starfield{position:fixed;inset:0;z-index:0;pointer-events:none}
+.neb{position:fixed;border-radius:50%;pointer-events:none;z-index:0}
+.neb1{width:600px;height:600px;background:radial-gradient(ellipse,rgba(124,58,237,.14),transparent 70%);top:-200px;right:-150px;filter:blur(80px)}
+.neb2{width:500px;height:500px;background:radial-gradient(ellipse,rgba(168,85,247,.1),transparent 70%);bottom:-100px;left:-100px;filter:blur(80px)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shimmer-line{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes moon-pulse{0%,100%{box-shadow:0 0 14px rgba(124,58,237,.5),0 0 28px rgba(124,58,237,.2)}50%{box-shadow:0 0 22px rgba(192,132,252,.8),0 0 45px rgba(124,58,237,.35)}}
+nav{position:sticky;top:0;z-index:200;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;background:rgba(8,6,26,.96);border-bottom:1px solid rgba(124,58,237,.25);backdrop-filter:blur(20px);box-shadow:0 1px 30px rgba(124,58,237,.12)}
+nav::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(192,132,252,.6),rgba(124,58,237,.9),rgba(192,132,252,.6),transparent);animation:shimmer-line 3s ease-in-out infinite}
+.logo{display:flex;align-items:center;gap:.6rem;cursor:pointer;flex-shrink:0;text-decoration:none}
+.logo-icon{width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(192,132,252,.9),rgba(124,58,237,.7) 50%,rgba(60,20,120,.8));border:1px solid rgba(192,132,252,.4);display:flex;align-items:center;justify-content:center;font-size:1.1rem;animation:moon-pulse 4s ease-in-out infinite;flex-shrink:0}
+.logo-text{display:flex;flex-direction:column;gap:1px}
+.logo-name{font-family:'Cinzel',serif;font-weight:900;font-size:1rem;color:var(--white);letter-spacing:.06em;white-space:nowrap;line-height:1}
+.logo-name em{font-style:normal;color:var(--purple3)}
+.logo-tag{font-size:.55rem;color:rgba(192,132,252,.55);letter-spacing:.18em;text-transform:uppercase;line-height:1;white-space:nowrap}
+.nav-menu{display:flex;align-items:center;gap:1.2rem}
+.nav-menu a{color:var(--silver3);font-size:.75rem;font-weight:500;cursor:pointer;text-decoration:none;transition:color .2s;white-space:nowrap}
+.nav-menu a:hover{color:var(--purple3)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.3rem}
+.ham span{display:block;width:22px;height:2px;background:var(--silver2);border-radius:2px;transition:all .3s}
+.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham.open span:nth-child(2){opacity:0}
+.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mmenu{display:none;position:fixed;inset:0;background:rgba(8,6,26,.98);z-index:190;flex-direction:column;align-items:center;justify-content:center;gap:1.8rem}
+.mmenu.open{display:flex}
+.mmenu a{font-family:'Cinzel',serif;font-size:1.15rem;color:var(--silver2);cursor:pointer;text-decoration:none;letter-spacing:.06em;transition:color .2s;text-align:center}
+.mmenu a:hover{color:var(--purple3)}
+.mmenu-div{width:40px;height:1px;background:rgba(124,58,237,.3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;padding:.72rem 1.4rem;font-family:'Inter',sans-serif;font-weight:600;font-size:.84rem;cursor:pointer;border:none;border-radius:8px;text-decoration:none;transition:all .2s;-webkit-tap-highlight-color:transparent;white-space:nowrap}
+.btn-primary{background:linear-gradient(135deg,var(--purple),var(--purple2));color:white;box-shadow:0 4px 20px rgba(124,58,237,.35)}
+.btn-primary:hover{box-shadow:0 6px 28px rgba(124,58,237,.5);transform:translateY(-1px)}
+.btn-secondary{background:rgba(124,58,237,.12);color:var(--purple3);border:1px solid rgba(124,58,237,.35)}
+.btn-outline{background:transparent;color:var(--silver2);border:1px solid rgba(226,232,240,.2)}
+.btn-block{width:100%}
+.badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.28);color:var(--purple3);font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.24rem .78rem;border-radius:999px;margin-bottom:.9rem}
+.page{position:relative;z-index:1;padding:3.5rem 1.5rem 5rem}
+.membership-wrap{max-width:660px;margin:0 auto}
+.stitle{font-family:'Cinzel',serif;font-weight:700;font-size:clamp(1.35rem,4vw,1.9rem);color:var(--white);margin-bottom:.5rem}
+.stitle em{font-style:normal;color:var(--purple3)}
+.ssub{color:var(--silver3);font-size:.88rem;line-height:1.7;margin-bottom:2rem}
+footer{background:rgba(6,4,18,.98);border-top:1px solid rgba(124,58,237,.15);padding:2rem 1.5rem 1.5rem;text-align:center;position:relative;z-index:1}
+.footer-logo{font-family:'Cinzel',serif;font-weight:900;font-size:1rem;color:var(--white);margin-bottom:.6rem}
+.footer-logo em{font-style:normal;color:var(--purple3)}
+.footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.1rem;margin:.6rem 0;font-size:.74rem}
+.footer-links a{color:var(--dim);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--purple3)}
+.footer-copy{font-size:.66rem;color:var(--dim);margin-top:.5rem}
+@media(max-width:768px){.nav-menu{display:none}.ham{display:flex}}
+</style>
+</head>
+<body>
+<canvas id="starfield"></canvas>
+<div class="neb neb1"></div>
+<div class="neb neb2"></div>
+
+<div class="mmenu" id="mmenu">
+  <a href="index.html">Home</a><div class="mmenu-div"></div>
+  <a href="index.html">Find a Psychic</a><div class="mmenu-div"></div>
+  <a href="index.html">Astrology Hub</a><div class="mmenu-div"></div>
+  <a href="tarot.html">🃏 Daily Tarot</a><div class="mmenu-div"></div>
+  <a href="membership.html" style="color:var(--purple3)">✦ Membership</a><div class="mmenu-div"></div>
+  <a href="index.html">Join as a Reader</a>
+</div>
+
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-icon">🌙</div>
+    <div class="logo-text">
+      <div class="logo-name">The Lunar <em>Hub</em></div>
+      <div class="logo-tag">✦ Spiritual Guidance</div>
+    </div>
+  </a>
+  <div class="nav-menu">
+    <a href="index.html">Home</a>
+    <a href="index.html">Find a Psychic</a>
+    <a href="tarot.html">🃏 Tarot</a>
+    <a href="membership.html" style="color:var(--purple3)">✦ Membership</a>
+    <a href="index.html">Join</a>
+  </div>
+  <button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page">
+  <div class="membership-wrap">
+    <div style="text-align:center;margin-bottom:2.5rem">
+      <div class="badge">✦ Reader Membership</div>
+      <h1 class="stitle">Join The Lunar <em>Hub</em></h1>
+      <p class="ssub">Get your profile in front of seekers. You handle your own bookings — we handle the exposure.</p>
+    </div>
+
+    <div style="background:var(--card);border:1px solid rgba(124,58,237,.2);border-radius:16px;padding:1.7rem;margin-bottom:1.4rem">
+      <h3 style="font-family:'Cinzel',serif;font-weight:700;color:var(--white);font-size:.96rem;margin-bottom:1.2rem;text-align:center">How It Works</h3>
+      <div style="display:flex;flex-direction:column;gap:.85rem">
+        <div style="display:flex;align-items:flex-start;gap:.85rem">
+          <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,rgba(124,58,237,.4),rgba(168,85,247,.2));border:1px solid rgba(124,58,237,.4);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700;font-size:.72rem;color:var(--purple3);flex-shrink:0">1</div>
+          <div><div style="font-family:'Cinzel',serif;font-weight:700;color:var(--white);font-size:.83rem;margin-bottom:.18rem">Apply & Get Approved</div><p style="font-size:.78rem;color:var(--silver3);line-height:1.6">Submit your application. We personally review every reader before accepting.</p></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:.85rem">
+          <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,rgba(124,58,237,.4),rgba(168,85,247,.2));border:1px solid rgba(124,58,237,.4);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700;font-size:.72rem;color:var(--purple3);flex-shrink:0">2</div>
+          <div><div style="font-family:'Cinzel',serif;font-weight:700;color:var(--white);font-size:.83rem;margin-bottom:.18rem">Pay Your Setup Fee</div><p style="font-size:.78rem;color:var(--silver3);line-height:1.6">After approval, pay the one-time $49 setup fee via PayPal. Your first month is completely free.</p></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:.85rem">
+          <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,rgba(124,58,237,.4),rgba(168,85,247,.2));border:1px solid rgba(124,58,237,.4);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700;font-size:.72rem;color:var(--purple3);flex-shrink:0">3</div>
+          <div><div style="font-family:'Cinzel',serif;font-weight:700;color:var(--white);font-size:.83rem;margin-bottom:.18rem">Go Live on The Lunar Hub</div><p style="font-size:.78rem;color:var(--silver3);line-height:1.6">Your profile goes live. Seekers find you, book directly, and you keep 100% of your earnings.</p></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:.85rem">
+          <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,rgba(124,58,237,.4),rgba(168,85,247,.2));border:1px solid rgba(124,58,237,.4);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700;font-size:.72rem;color:var(--purple3);flex-shrink:0">4</div>
+          <div><div style="font-family:'Cinzel',serif;font-weight:700;color:var(--white);font-size:.83rem;margin-bottom:.18rem">$19/Month After Trial</div><p style="font-size:.78rem;color:var(--silver3);line-height:1.6">After your free month, stay listed for just $19/month. Cancel any time.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:linear-gradient(145deg,rgba(124,58,237,.15),rgba(168,85,247,.08));border:1px solid rgba(124,58,237,.45);border-radius:20px;padding:1.8rem;margin-bottom:1.4rem;text-align:center;position:relative;overflow:hidden">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--purple),var(--purple2),var(--purple3))"></div>
+      <div style="font-family:'Cinzel',serif;font-weight:700;color:var(--white);font-size:1.05rem;margin-bottom:.8rem">Reader Membership</div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin:1rem 0;flex-wrap:wrap">
+        <div style="text-align:center">
+          <div style="font-size:.68rem;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.18rem">Setup Fee</div>
+          <div style="font-family:'Cinzel',serif;font-weight:900;font-size:1.9rem;color:var(--white)">$49</div>
+          <div style="font-size:.68rem;color:var(--purple3)">one-time</div>
+        </div>
+        <div style="color:rgba(124,58,237,.4);font-size:1.4rem">+</div>
+        <div style="text-align:center">
+          <div style="font-size:.68rem;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.18rem">Monthly</div>
+          <div style="font-family:'Cinzel',serif;font-weight:900;font-size:1.9rem;color:var(--white)">$19</div>
+          <div style="font-size:.68rem;color:var(--purple3)">/month</div>
+        </div>
+      </div>
+      <div style="display:inline-flex;align-items:center;gap:.4rem;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.3);border-radius:999px;padding:.28rem .85rem;font-size:.72rem;font-weight:700;color:var(--green);margin-bottom:1.2rem">🎉 First Month FREE</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin-bottom:1.4rem;text-align:left">
+        <div style="font-size:.76rem;color:var(--silver3);display:flex;align-items:center;gap:.38rem"><span style="color:var(--purple3)">✦</span>Your own reader profile</div>
+        <div style="font-size:.76rem;color:var(--silver3);display:flex;align-items:center;gap:.38rem"><span style="color:var(--purple3)">✦</span>Listed in directory</div>
+        <div style="font-size:.76rem;color:var(--silver3);display:flex;align-items:center;gap:.38rem"><span style="color:var(--purple3)">✦</span>Keep 100% of earnings</div>
+        <div style="font-size:.76rem;color:var(--silver3);display:flex;align-items:center;gap:.38rem"><span style="color:var(--purple3)">✦</span>Manage your bookings</div>
+        <div style="font-size:.76rem;color:var(--silver3);display:flex;align-items:center;gap:.38rem"><span style="color:var(--purple3)">✦</span>Set your own rates</div>
+        <div style="font-size:.76rem;color:var(--silver3);display:flex;align-items:center;gap:.38rem"><span style="color:var(--purple3)">✦</span>Cancel any time</div>
+      </div>
+      <a href="https://paypal.me/moonpietarot/49" target="_blank" class="btn btn-primary btn-block" style="font-size:.88rem;padding:.88rem;margin-bottom:.65rem">💳 Pay $49 Setup Fee via PayPal</a>
+      <p style="font-size:.68rem;color:var(--dim)">Only pay after approval. Questions? <a href="index.html" style="color:var(--purple3)">See FAQ</a></p>
+    </div>
+
+    <div style="text-align:center">
+      <p style="font-size:.82rem;color:var(--silver3);margin-bottom:1.1rem;line-height:1.7">Not yet applied? Start your application first.</p>
+      <a href="index.html" class="btn btn-secondary btn-block" style="margin-bottom:.65rem">Apply to Join as a Reader →</a>
+      <a href="index.html" class="btn btn-outline btn-block">← Back to Site</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">The Lunar <em>Hub</em></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="index.html">Find a Psychic</a>
+    <a href="tarot.html">Daily Tarot</a>
+    <a href="membership.html">Membership</a>
+    <a href="index.html">FAQ</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+  </div>
+  <p class="footer-copy">© 2026 The Lunar Hub. All rights reserved.</p>
+</footer>
+
+<script>
+(function(){var c=document.getElementById('starfield'),ctx=c.getContext('2d'),W,H,stars=[];function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;stars=[];for(var i=0;i<240;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.3+.2,o:Math.random(),s:Math.random()*.014+.004,d:Math.random()>.5?1:-1})}function draw(){ctx.clearRect(0,0,W,H);for(var i=0;i<stars.length;i++){var s=stars[i];s.o+=s.s*s.d;if(s.o>1||s.o<.1)s.d*=-1;var g=ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*2.5);g.addColorStop(0,'rgba(220,210,255,'+s.o+')');g.addColorStop(1,'transparent');ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=g;ctx.fill()}requestAnimationFrame(draw)}resize();window.addEventListener('resize',resize);draw()})();
+function toggleMenu(){document.querySelectorAll('.ham').forEach(function(h){h.classList.toggle('open')});document.getElementById('mmenu').classList.toggle('open')}
+</script>
+</body>
+</html>
