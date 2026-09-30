@@ -504,16 +504,22 @@ crossorigin="anonymous"></script>
       <div class="perk"><span class="perk-icon">🪐</span><div><h4>Community</h4><p>Join a curated group of gifted cosmic readers.</p></div></div>
       <div class="perk"><span class="perk-icon">🚀</span><div><h4>Grow Your Reach</h4><p>Connect with seekers looking for their guide.</p></div></div>
     </div>
-    <div class="join-form">
-      <h3>✦ Reader Application</h3>
-      <div class="frow"><div class="field"><label>Full Name</label><input type="text" id="appFullName" placeholder="Your name"/></div><div class="field"><label>Display Name</label><input type="text" id="appDisplayName" placeholder="Seekers will see this"/></div></div>
-      <div class="frow"><div class="field"><label>Email</label><input type="email" id="appEmail" placeholder="you@email.com"/></div><div class="field"><label>Instagram</label><input type="text" id="appInstagram" placeholder="@yourhandle"/></div></div>
-      <div class="field"><label>Primary Specialty</label><select id="appSpecialty"><option>Tarot Reading</option><option>Mediumship</option><option>Astrology</option><option>Energy Healing</option><option>Dream Analysis</option><option>Multiple / Other</option></select></div>
-      <div class="frow"><div class="field"><label>Years Experience</label><input type="text" id="appExperience" placeholder="e.g. 5 years"/></div><div class="field"><label>YouTube / Website</label><input type="text" id="appWebsite" placeholder="https://..."/></div></div>
-      <div class="field"><label>Bio</label><textarea id="appBio" placeholder="Tell us about your gift and style..."></textarea></div>
-      <button class="btn btn-primary btn-block" onclick="submitApp()">Submit Application ✦</button>
-      <p style="text-align:center;font-size:.76rem;color:var(--dim);margin-top:.85rem">Questions? <a href="mailto:houseovirgo@gmail.com" style="color:var(--purple3)">houseovirgo@gmail.com</a></p>
-    </div>
+  <div class="join-form">
+  <h3>✦ Reader Application</h3>
+  <div style="background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.2);border-radius:10px;padding:1rem;margin-bottom:1.2rem;font-size:.78rem;color:var(--silver3);line-height:1.7">
+    <strong style="color:var(--purple3)">⚠️ Notice to Applicants:</strong> The Lunar Hub only accepts readers with an active public online presence or an established shop (such as Etsy, Instagram, TikTok, or a professional website). Applications without verifiable links, or bios written as long backstories rather than client-focused service descriptions, will automatically be declined. If you wish to re-apply, please update your information accordingly and re-send your application.
+  </div>
+  <div class="frow"><div class="field"><label>Full Name</label><input type="text" id="appFullName" placeholder="Your name"/></div><div class="field"><label>Display Name</label><input type="text" id="appDisplayName" placeholder="Seekers will see this"/></div></div>
+  <div class="frow"><div class="field"><label>Email</label><input type="email" id="appEmail" placeholder="you@email.com"/></div><div class="field"><label>Primary Specialty</label><select id="appSpecialty"><option>Tarot Reading</option><option>Mediumship</option><option>Astrology</option><option>Energy Healing</option><option>Dream Analysis</option><option>Multiple / Other</option></select></div></div>
+  <div class="field"><label>Public Social Media Handle/Link <span style="color:#ef4444">*</span></label><input type="text" id="appSocial" placeholder="Link to your public business Instagram, TikTok, or YouTube channel where you post regular content"/><p style="font-size:.68rem;color:var(--dim);margin-top:.25rem">Link to your public business Instagram, TikTok, or YouTube channel where you post regular content.</p></div>
+  <div class="field"><label>Etsy Shop / Booking Site <span style="color:#ef4444">*</span></label><input type="text" id="appEtsy" placeholder="https://..."/><p style="font-size:.68rem;color:var(--dim);margin-top:.25rem">Link to your Etsy store or any booking site, so we can verify client activity.</p></div>
+  <div class="field"><label>Professional Website <span style="color:var(--dim);font-size:.65rem;font-weight:400;text-transform:none">(optional)</span></label><input type="text" id="appWebsite" placeholder="https://..."/></div>
+  <div class="field"><label>Client Reviews / Proof of Status <span style="color:var(--dim);font-size:.65rem;font-weight:400;text-transform:none">(optional)</span></label><input type="text" id="appReviews" placeholder="Direct link or folder with past testimonials or review counts"/><p style="font-size:.68rem;color:var(--dim);margin-top:.25rem">Direct link or folder with past testimonials or review counts.</p></div>
+  <div class="frow"><div class="field"><label>Years Experience</label><input type="text" id="appExperience" placeholder="e.g. 5 years"/></div><div class="field"><label>Instagram Handle</label><input type="text" id="appInstagram" placeholder="@yourhandle"/></div></div>
+  <div class="field"><label>Public Profile Bio <span style="color:#ef4444">*</span></label><textarea id="appBio" placeholder="Write a 3-5 sentence bio that will be displayed on your public Lunar Hub profile if accepted. Focus on your services offered, reading style, and what clients can expect during a session. Do NOT include your personal life history or backstory." style="min-height:120px"></textarea><p style="font-size:.68rem;color:var(--dim);margin-top:.25rem">Write a 3-5 sentence bio that will be displayed on your public Lunar Hub profile if accepted. Focus on your services offered, reading style, and what clients can expect during a session — do NOT include your personal life history or backstory.</p></div>
+  <button class="btn btn-primary btn-block" onclick="submitApp()">Submit Application ✦</button>
+  <p style="text-align:center;font-size:.76rem;color:var(--dim);margin-top:.85rem">Questions? <a href="mailto:houseovirgo@gmail.com" style="color:var(--purple3)">houseovirgo@gmail.com</a></p>
+</div>
   </div>
   <footer><div class="footer-logo">The Lunar <em>Hub</em></div><div class="footer-links"><a onclick="go('screen-home')">Home</a><a onclick="go('screen-faq')">FAQ</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms</a></div><p class="footer-copy" style="margin-top:.5rem">© 2026 The Lunar Hub. All rights reserved.</p></footer>
 </div>
@@ -620,20 +626,27 @@ function submitApp(){
   var fullName=document.getElementById('appFullName').value;
   var displayName=document.getElementById('appDisplayName').value;
   var email=document.getElementById('appEmail').value;
-  var instagram=document.getElementById('appInstagram').value;
+  var social=document.getElementById('appSocial').value;
+  var etsy=document.getElementById('appEtsy').value;
+  var website=document.getElementById('appWebsite').value;
+  var reviews=document.getElementById('appReviews').value;
   var specialty=document.getElementById('appSpecialty').value;
   var experience=document.getElementById('appExperience').value;
-  var website=document.getElementById('appWebsite').value;
+  var instagram=document.getElementById('appInstagram').value;
   var bio=document.getElementById('appBio').value;
+  if(!social||!etsy||!bio){alert('Please fill in all required fields marked with ✦');return}
   var body='New Reader Application – The Lunar Hub\n\n'
     +'Full Name: '+fullName+'\n'
     +'Display Name: '+displayName+'\n'
     +'Email: '+email+'\n'
     +'Instagram: '+instagram+'\n'
     +'Specialty: '+specialty+'\n'
-    +'Experience: '+experience+'\n'
-    +'Website/YouTube: '+website+'\n\n'
-    +'Bio:\n'+bio;
+    +'Experience: '+experience+'\n\n'
+    +'Public Social Media: '+social+'\n'
+    +'Etsy/Booking Site: '+etsy+'\n'
+    +'Professional Website: '+website+'\n'
+    +'Client Reviews/Proof: '+reviews+'\n\n'
+    +'Public Profile Bio:\n'+bio;
   window.location.href='mailto:houseovirgo@gmail.com?subject=New Reader Application – The Lunar Hub&body='+encodeURIComponent(body);
 }
 
