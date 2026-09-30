@@ -511,7 +511,17 @@ crossorigin="anonymous"></script>
   </div>
   <div class="frow"><div class="field"><label>Full Name</label><input type="text" id="appFullName" placeholder="Your name"/></div><div class="field"><label>Display Name</label><input type="text" id="appDisplayName" placeholder="Seekers will see this"/></div></div>
   <div class="frow"><div class="field"><label>Email</label><input type="email" id="appEmail" placeholder="you@email.com"/></div><div class="field"><label>Primary Specialty</label><select id="appSpecialty"><option>Tarot Reading</option><option>Mediumship</option><option>Astrology</option><option>Energy Healing</option><option>Dream Analysis</option><option>Multiple / Other</option></select></div></div>
-  <div class="field"><label>Public Social Media Handle/Link <span style="color:#ef4444">*</span></label><input type="text" id="appSocial" placeholder="Link to your public business Instagram, TikTok, or YouTube channel where you post regular content"/><p style="font-size:.68rem;color:var(--dim);margin-top:.25rem">Link to your public business Instagram, TikTok, or YouTube channel where you post regular content.</p></div>
+  <div class="field">
+  <label>Public Social Media Links <span style="color:#ef4444">*</span></label>
+  <p style="font-size:.68rem;color:var(--dim);margin-bottom:.5rem">Add links to your public business Instagram, TikTok, YouTube, or any other platform where you post regular content.</p>
+  <div id="socialLinksContainer">
+    <div class="social-entry" style="display:flex;gap:.5rem;margin-bottom:.5rem">
+      <input type="text" placeholder="Platform (e.g. Instagram)" style="width:35%;padding:.7rem .9rem;background:rgba(8,6,26,.9);color:var(--white);border:1px solid rgba(124,58,237,.25);border-radius:8px;font-family:'Inter',sans-serif;font-size:16px;outline:none"/>
+      <input type="text" placeholder="@handle or link" style="flex:1;padding:.7rem .9rem;background:rgba(8,6,26,.9);color:var(--white);border:1px solid rgba(124,58,237,.25);border-radius:8px;font-family:'Inter',sans-serif;font-size:16px;outline:none"/>
+    </div>
+  </div>
+  <button type="button" onclick="addSocialField()" class="btn btn-secondary btn-sm" style="margin-top:.3rem">+ Add Another</button>
+</div>
   <div class="field"><label>Etsy Shop / Booking Site <span style="color:#ef4444">*</span></label><input type="text" id="appEtsy" placeholder="https://..."/><p style="font-size:.68rem;color:var(--dim);margin-top:.25rem">Link to your Etsy store or any booking site, so we can verify client activity.</p></div>
   <div class="field"><label>Professional Website <span style="color:var(--dim);font-size:.65rem;font-weight:400;text-transform:none">(optional)</span></label><input type="text" id="appWebsite" placeholder="https://..."/></div>
   <div class="field"><label>Client Reviews / Proof of Status <span style="color:var(--dim);font-size:.65rem;font-weight:400;text-transform:none">(optional)</span></label><input type="text" id="appReviews" placeholder="Direct link or folder with past testimonials or review counts"/><p style="font-size:.68rem;color:var(--dim);margin-top:.25rem">Direct link or folder with past testimonials or review counts.</p></div>
@@ -622,11 +632,22 @@ function toggleMenu(){document.querySelectorAll('.ham').forEach(function(h){h.cl
 function cm(){document.querySelectorAll('.ham').forEach(function(h){h.classList.remove('open')});document.getElementById('mmenu').classList.remove('open')}
 
 // ── READER APPLICATION ──
+function addSocialField(){
+  var container=document.getElementById('socialLinksContainer');
+  var div=document.createElement('div');
+  div.className='social-entry';
+  div.style.cssText='display:flex;gap:.5rem;margin-bottom:.5rem';
+  div.innerHTML='<input type="text" placeholder="Platform (e.g. TikTok)" style="width:35%;padding:.7rem .9rem;background:rgba(8,6,26,.9);color:var(--white);border:1px solid rgba(124,58,237,.25);border-radius:8px;font-family:\'Inter\',sans-serif;font-size:16px;outline:none"/><input type="text" placeholder="@handle or link" style="flex:1;padding:.7rem .9rem;background:rgba(8,6,26,.9);color:var(--white);border:1px solid rgba(124,58,237,.25);border-radius:8px;font-family:\'Inter\',sans-serif;font-size:16px;outline:none"/><button type="button" onclick="this.parentElement.remove()" style="background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#ef4444;border-radius:8px;padding:.5rem .7rem;cursor:pointer;font-size:.8rem">✕</button>';
+  container.appendChild(div);
+}
 function submitApp(){
   var fullName=document.getElementById('appFullName').value;
   var displayName=document.getElementById('appDisplayName').value;
   var email=document.getElementById('appEmail').value;
-  var social=document.getElementById('appSocial').value;
+  var socialEntries=document.querySelectorAll('#socialLinksContainer .social-entry');
+  var socialLines=[];
+  socialEntries.forEach(function(entry){var inputs=entry.querySelectorAll('input');if(inputs[0].value||inputs[1].value){socialLines.push(inputs[0].value+': '+inputs[1].value)}});
+  var social=socialLines.join('\n');
   var etsy=document.getElementById('appEtsy').value;
   var website=document.getElementById('appWebsite').value;
   var reviews=document.getElementById('appReviews').value;
@@ -634,7 +655,7 @@ function submitApp(){
   var experience=document.getElementById('appExperience').value;
   var instagram=document.getElementById('appInstagram').value;
   var bio=document.getElementById('appBio').value;
-  if(!social||!etsy||!bio){alert('Please fill in all required fields marked with ✦');return}
+  if(!social||!etsy||!bio){alert('Please fill in all required fields.');return}
   var body='New Reader Application – The Lunar Hub\n\n'
     +'Full Name: '+fullName+'\n'
     +'Display Name: '+displayName+'\n'
@@ -642,7 +663,7 @@ function submitApp(){
     +'Instagram: '+instagram+'\n'
     +'Specialty: '+specialty+'\n'
     +'Experience: '+experience+'\n\n'
-    +'Public Social Media: '+social+'\n'
+    +'Public Social Media:\n'+social+'\n'
     +'Etsy/Booking Site: '+etsy+'\n'
     +'Professional Website: '+website+'\n'
     +'Client Reviews/Proof: '+reviews+'\n\n'
